@@ -1,7 +1,7 @@
 class TeacherCoursesController < ApplicationController
 
   def index
-    teacher_courses_path
+    #teacher_courses_path
   end
 
   def show
