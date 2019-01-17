@@ -28,23 +28,41 @@
         </table>
 
 <br>
------------------------------
+
 <h4> 2019-ec Version - Javascipt / Rails / JQuery </h4>
 
-Create Link to fetch teacher_courses via AJAX Get request, with backend rendering teacher_courses in JSON format and appending to this page.
+<h5>Fetch teacher_courses via AJAX Get request, with backend rendering teacher_courses in JSON format and appending to this page.
+</h5>
 
-<%-# -%>
- 
- <%= link_to "View All Teacher Courses", teacher_course_path(1), :id => "view_all_teacher_courses" %> 
+<h5 class="green-text">Viewing your course listing and the number of students enrolled in each:</h5>
+      <table>
+        <tbody>
+          <tr>
+          <td width="100"><h5>Course ID</h5></td>
+          <td width="150"><h5>Course Name</h5></td>
+          <td width="200"><h5>Number of Students Enrolled</h5></td>
+          <td width="300"><h5>Teacher Actions for Course</h5></td>
+          </tr>
+          <% @teachercourses_js.each do |teachercourse_js| %>
+          <tr>
+          <td width="100"><h6> <%= "#{teachercourse_js.course_id}"%></h6></td>
+          <td width="150"><h6> <%= "#{get_course_name(teachercourse_js.course_id)}"%></h6></td>
+          <td width="200"><h6> <%= "#{getCount(teachercourse_js.course_id)}" %></h6></td>
+          <td width="300"><h6>
+            <%= link_to "View Students", teacher_course_path(teachercourse_js.course_id) %> |
+            <%= link_to "View Assignments", course_course_details_path(teachercourse_js.course_id) %>
+          </h6></td>
+          </tr>
 
-<h5>TESTING JSON </h5>
-<%= @teachercourses_js.each do |teachercourse_js| %>
-  <h6><%= teachercourse_js.id %></h6> | <%= link_to "View Assignments", course_course_details_path(teachercourse_js.id) %>
-<% end %>
+          <% end %>
+        </tbody>
+        </table>
 
-<div id="teachercourses-js-content">
-  
-</div>
+<br>
+
+
+
+
 
 
      <% else %>
