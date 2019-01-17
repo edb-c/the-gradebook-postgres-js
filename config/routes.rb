@@ -51,6 +51,10 @@ Rails.application.routes.draw do
 #Nested resource/routes - captures parent/child relationship
   resources :courses, only: :index do
   resources :course_details, controller: 'courses/course_detail'
+
+ #ec-2019
+
+
  end
 
   resources :students, only: [:index, :show]

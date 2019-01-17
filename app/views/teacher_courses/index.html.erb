@@ -27,12 +27,25 @@
         </tbody>
         </table>
 
-     <% else %>
-     <h5>You currently do not have any Courses. Please contact Administrator.</h5>
-    <% end %>
 <br>
 -----------------------------
 <h4> 2019-ec Version - Javascipt / Rails / JQuery </h4>
+
+Create button to fetch teacher_courses via AJAX Get request, with backend rendering teacher_courses in JSON format and appending to this page.
+
+<%-# teacher_courses GET      /teacher_courses(.:format)   teacher_courses#index -%>
+ 
+ <%= link_to "Load Teacher Courses", teacher_course_path(1), :class => 'load_teacher_courses' %> 
+
+
+
+
+     <% else %>
+
+     <h5>You currently do not have any Courses. Please contact Administrator.</h5>
+
+    <% end %>
+
 
 
 </div>
