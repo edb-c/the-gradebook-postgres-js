@@ -8,6 +8,8 @@ class Teachers::SessionsController < Devise::SessionsController
     puts "ec- Teachers::SessionsController - after_sign_in_path_for(teachers)"
 
     teacher_courses_path  #brings to index
+
+    
   end
 
   def destroy

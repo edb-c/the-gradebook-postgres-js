@@ -31,13 +31,20 @@
 -----------------------------
 <h4> 2019-ec Version - Javascipt / Rails / JQuery </h4>
 
-Create button to fetch teacher_courses via AJAX Get request, with backend rendering teacher_courses in JSON format and appending to this page.
+Create Link to fetch teacher_courses via AJAX Get request, with backend rendering teacher_courses in JSON format and appending to this page.
 
-<%-# teacher_courses GET      /teacher_courses(.:format)   teacher_courses#index -%>
+<%-# -%>
  
- <%= link_to "Load Teacher Courses", teacher_course_path(1), :class => 'load_teacher_courses' %> 
+ <%= link_to "View All Teacher Courses", teacher_course_path(1), :id => "view_all_teacher_courses" %> 
 
+<h5>TESTING JSON </h5>
+<%= @teachercourses_js.each do |teachercourse_js| %>
+  <h6><%= teachercourse_js.id %></h6> | <%= link_to "View Assignments", course_course_details_path(teachercourse_js.id) %>
+<% end %>
 
+<div id="teachercourses-js-content">
+  
+</div>
 
 
      <% else %>

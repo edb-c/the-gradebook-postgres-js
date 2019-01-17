@@ -1,19 +1,22 @@
 class TeacherCoursesController < ApplicationController
 
-  def index
+ # def index
     #teacher_courses_path
-  end
-
- # def show
- #   @teachercourse = TeacherCourse.find(params[:id])
  # end
 
-  def show
-    @teachercourse_js = TeacherCourse.find(params[:id])
+  def index
+    @teachercourses_js = TeacherCourse.all
+    
     respond_to do |f|
-      f.html {render :show}
-      f.json {render json: @teachercourse_js }
+      f.html {render :index}
+      f.json {render json: @teachercourses_js }
     end
+  end  
+
+
+  def show
+    @teachercourse = TeacherCourse.find(params[:id])
+
   end
 
   def edit
