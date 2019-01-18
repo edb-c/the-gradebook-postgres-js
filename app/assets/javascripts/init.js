@@ -1,8 +1,9 @@
 (function($){
-  $(function(){
+	  $(function(){
+	    $('.sidenav').sidenav();
+	    $('.parallax').parallax(); 
+	}); // end of document ready
+})(jQuery);
 
-    $('.sidenav').sidenav();
-    $('.parallax').parallax();
-    
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
+console.log("ec2019- in init.js" );
+
