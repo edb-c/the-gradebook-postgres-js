@@ -2,17 +2,30 @@ console.log( "ec2019- In teacher_courses.js" );
 
 window.onload=function(){
 
-  document.getElementById('getTeacherCourses_btn').addEventListener('click', getTeacherCourses);
-//  document.getElementById('hideTeacherCourses_btn').addEventListener('click', hideTeacherCourses);
+  document.getElementById('displayRails').addEventListener('click', displayRails); 
 
- 
+  document.getElementById('fetchTeacherCourses_btn').addEventListener('click', getTeacherCourses);
+
+//  document.getElementById('hideTeacherCourses_btn').addEventListener('click', hideTeacherCourses);
 
 } //end window.onload
 
+function displayRails() {
+  var rails_section = document.getElementById("old_DIV");
+  
+  if (rails_section.style.display === "none") {
+    rails_section.style.display = "block";
+  } else {
+    rails_section.style.display = "none";
+  }
+};
+
+
 function getTeacherCourses(){
   fetch('http://localhost:3000/teacher_courses.json')
-    .then((res) => res.json())
+    .then((res) => res.json()) // Transform to JSON object
     .then((data) => {
+      console.log(data)
       let output_table = `<div id="teacher-courses">
          <table>
          <tbody> 

@@ -1,5 +1,10 @@
 <div class="devise_container">
-<h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
+  
+  <button id="displayRails">Click To View/Hide Previous Rails Project Version</button>
+
+<div id="old_DIV">
+
+ <h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
 
     <% if current_teacher.teacher_courses.present? %>
 
@@ -27,16 +32,27 @@
         </tbody>
         </table>
 
-<br>
 
-<h4 class="red-text"> -----  2019-ec Portfoio Project - Javascipt / Rails / JQuery Version. -----</h4>
+     <% else %>
 
-<h5>Fetch teacher_courses via Javascript Fetch api, with backend rendering teacher_courses in JSON format and appending to this page.
-</h5>
+     <h5>You currently do not have any Courses. Please contact Administrator.</h5>
+
+    <% end %>
+
+</div>
+
+<%#--------------------------------------------------->%>
+
+<h4 class="red-text"> ----  2019-ec Portfoio Project - Javascipt / Rails / JQuery Version. ----</h4>
+
+
+<h6>Requirement 1: <br>Render Teacher Course index page - listing of Teacher's Courses.
+  Using Javascript Fetch Api, Active Model Serialization and JSON.
+</h6>
 
  
 <h5 class="green-text">Click to View your course listing and the number of students enrolled in each:</h5> 
-<button id="getTeacherCourses_btn">Get Teacher Courses</button>
+<button id="fetchTeacherCourses_btn">Get Teacher Courses</button>
 
 <%# (not required) <button id="hideTeacherCourses_btn">Hide Teacher Courses</button>  %>
 
@@ -44,13 +60,7 @@
 <div id="output_row"></div>
 
 
-<%#--------------------------------------------------->%>
-     <% else %>
-
-     <h5>You currently do not have any Courses. Please contact Administrator.</h5>
-
-    <% end %>
 
 
 
-</div>
+</div> <%# end div devise containter >%>

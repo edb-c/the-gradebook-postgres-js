@@ -4,12 +4,12 @@ class TeacherCoursesController < ApplicationController
   def index
 
   #ec-2019   
-      @teachercourses_js = TeacherCourse.where(teacher_id: current_teacher)
-    
-      respond_to do |format|
+    @teachercourse = TeacherCourse.where(teacher_id: current_teacher)
+    #render json: @teachercourse
+   respond_to do |format|
         format.html {render :index} #teacher_courses_path
-        format.json {render json: @teachercourses_js }
-      end
+        format.json {render json: @teachercourse }
+    end
      
   end  
 

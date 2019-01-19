@@ -2,7 +2,11 @@ class Courses::CourseDetailController < ApplicationController
 
   def index
     puts "ec- In CourseDetailController -index"
-    @course_detail = CourseDetail.all
+    @coursedetail = CourseDetail.all
+    respond_to do |format|
+        format.html {render :index} #
+        format.json {render json: @coursedetail }
+    end    
   end
 
   def edit
