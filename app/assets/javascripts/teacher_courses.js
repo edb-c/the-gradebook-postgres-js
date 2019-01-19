@@ -26,6 +26,8 @@ function getTeacherCourses(){
     .then((res) => res.json()) // Transform to JSON object
     .then((data) => {
       console.log(data)
+      console.log(data.course_name)
+
       let output_table = `<div id="teacher-courses">
          <table>
          <tbody> 
@@ -36,13 +38,12 @@ function getTeacherCourses(){
             <td width="300"><h5>Teacher Actions for Course</h5></td> 
           </tr> 
           `;
-       let output_row = ``;   
        data.forEach(function(teachercourse){
-          output_row += `
+          output_table += `
             
            <tr> 
             <td width="100"><h6>${teachercourse.course_id}</h6></td> 
-            <td width="150"><h6></h6></td> 
+            <td width="150"><h6>${teachercourse.course.course_name}</h6></td> 
             <td width="200"><h6></h6></td> 
             <td width="300"><h6></h6></td> 
           </tr> 
@@ -55,7 +56,7 @@ function getTeacherCourses(){
          </div>
        `
     document.getElementById('output_table').innerHTML = output_table;
-    document.getElementById('output_row').innerHTML = output_row;
+
   })
 } //end getTeacherCourses()
 
