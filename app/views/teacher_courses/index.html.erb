@@ -1,8 +1,8 @@
 <div class="devise_container">
   
-  <button id="displayRails">Click To View/Hide Previous Rails Project Version</button>
+<!--   <button id="displayRails">Click To View/Hide Previous Rails Project Version</button>
 
-<div id="old_DIV">
+<div id="old_DIV" style="display:none"> -->
 
  <h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
 
@@ -39,19 +39,17 @@
 
     <% end %>
 
-</div>
+<!-- </div> -->
 
 <%#--------------------------------------------------->%>
 
-<h4 class="red-text"> ----  2019-ec Portfoio Project - Javascipt / Rails / JQuery Version. ----</h4>
+<h4 class="blue-text"> ----  Rails with JavaScript Portfolio Project ----</h4>
 
 
-<h6>Requirement 1: <br>Render Teacher Course index page - listing of Teacher's Courses.
-  Using Javascript Fetch Api, Active Model Serialization and JSON.
-</h6>
+<h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
 
- 
 <h5 class="green-text">Click to View your course listing and the number of students enrolled in each:</h5> 
+
 <button id="fetchTeacherCourses_btn">Get Teacher Courses</button>
 
 <%# (not required) <button id="hideTeacherCourses_btn">Hide Teacher Courses</button>  %>

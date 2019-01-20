@@ -1,5 +1,9 @@
 <div class="devise_container">
 
+<!--  <button id="displayRails2">Click To View/Hide Previous Rails Project Version</button>
+
+<div id="old_DIV2" style="display:none"> -->
+
 <!-- STUDENT ASSIGNMENT LOGIC -->
   <% if current_student %>
     <h4>Welcome <%= current_student.firstname.capitalize if current_student.firstname %>!</h4>
@@ -61,6 +65,21 @@
 <h5><a href="/teacher_courses"><button class="btn btn-primary">GO BACK</button></a></h5>
 <% end %>
 
+<!-- </div> -->
+
+<%#--------------------------------------------------->%>
+
+<h4 class="blue-text"> ----  Rails with JavaScript Portfolio Project ----</h4>
+
+<h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
+
+<h5 class="green-text">Click to View this course's details:</h5> 
+
+<button id="fetchCourseDetails_btn">Get Course Details</button>
+
+<%#   %>
+
+<div id="output_table_cd"></div>
 
 
-</div>
+</div> <!-- end Devise Container -->

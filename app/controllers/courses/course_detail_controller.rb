@@ -2,11 +2,15 @@ class Courses::CourseDetailController < ApplicationController
 
   def index
     puts "ec- In CourseDetailController -index"
-    @coursedetail = CourseDetail.where(teacher_id: current_teacher)
+    puts ("#{params[:course_id]}")
+
+    @coursedetail = CourseDetail.where(course_id: params[:course_id])
+
     respond_to do |format|
         format.html {render :index} #
         format.json {render json: @coursedetail }
     end    
+    
   end
 
   def edit
@@ -41,7 +45,12 @@ class Courses::CourseDetailController < ApplicationController
   end
 
   def show
-
+   puts "ec- In CourseDetailController -show"
+    @acoursedetail = CourseDetail.where(course_id: params[:id])
+    respond_to do |format|
+        format.html {render :index} #
+        format.json {render json: @acoursedetail }
+    end    
   end
 
   def update

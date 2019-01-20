@@ -9,3 +9,4 @@ class StudentsController < ApplicationController
   end
 
 end
+  

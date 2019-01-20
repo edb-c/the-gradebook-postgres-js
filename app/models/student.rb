@@ -9,7 +9,7 @@ class Student < ApplicationRecord
   has_many :courses,     through: :student_courses
 
   has_many :course_details
-  has_many :teachers,    through: :course_details
+  has_many :teachers,    through: :course_details, :source=>"teacher"
 
   accepts_nested_attributes_for :teachers, :courses, :course_details
 
