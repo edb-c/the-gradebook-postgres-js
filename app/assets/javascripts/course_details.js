@@ -88,8 +88,11 @@ fetch(data, {
   method: 'POST',
   body: JSON.stringify(data), 
   headers:{
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+     'Accept': 'application/json',
+  'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  },
+  
 }).then(res => res.json())
 .then(response => console.log('Success:', JSON.stringify(response)));
 
