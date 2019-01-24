@@ -4,11 +4,7 @@ window.onload=function(){
   //document.getElementById('displayRails').addEventListener('click', displayRails);
   //document.getElementById('displayRails2').addEventListener('click', displayRails2); 
 
-document.getElementById("new_course_detail").addEventListener("submit", function(event){
-        event.preventDefault()
-        alert('Hello')
-    });
-
+document.getElementById('new_course_detail').addEventListener('submit', new_course_detail);
 
 
 
@@ -78,13 +74,25 @@ function getCourseDetails(){
 } //getCourseDetails()
 
 
-function newCourseDetail(){
+function new_course_detail(){
 
-   //   e.preventDefault();
-let current_url = document.referrer;
-let data = current_url + '.json';
+//let current_url = window.location.referrer + '.json';
 
-fetch(data, {
+let course_detail_course_id = document.getElementById('course_detail_course_id').value;
+let student_id = document.getElementById('course_detail_student_id').value; 
+let teacher_id = document.getElementById('course_detail_teacher_id').value; 
+let assignment_name = document.getElementById('course_detail_assignment_name').value; 
+let assignment_grade = document.getElementById('course_detail_assignment_grade').value;
+
+let current_url = '/courses/${course_id}/course_details.json'
+
+let data = {course_id: course_detail_course_id,
+      student_id: student_id, 
+      teacher_id: teacher_id, 
+      assignment_name: assignment_name, 
+      assignment_grade: assignment_grade}
+
+fetch(current_url, {
   method: 'POST',
   body: JSON.stringify(data), 
   headers:{
