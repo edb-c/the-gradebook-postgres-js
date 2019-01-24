@@ -1,6 +1,12 @@
 console.log( "ec2019- In teacher_courses.js" );
 
 
+window.onload=function(){
+  //document.getElementById('displayRails').addEventListener('click', displayRails);
+  //document.getElementById('displayRails2').addEventListener('click', displayRails2); 
+} //end window.onload
+
+
 function displayRails() {
   var rails_section = document.getElementById("old_DIV");
   
@@ -24,11 +30,13 @@ function getTeacherCourses(){
   var current_url = window.location.href;
   
   fetch(current_url + '.json')
+     
+    
 
     .then((res) => res.json()) // Transform to JSON object
     .then((data) => {
       
-      let output_table = `<div id="teacher-courses">
+      let output_teacher_courses = `<div id="output_teacher_courses">
          <table>
          <tbody> 
           <tr> 
@@ -40,8 +48,11 @@ function getTeacherCourses(){
           `;
       
        data.forEach(function(teachercourse){
-//${teachercourse.getCount} - does not work
-          output_table += `  
+
+let thisTeacherCourse = new TeacherCourse(teachercourse);
+
+    console.log(teachercourse.course_id);
+          output_teacher_courses += `  
            <tr> 
             <td width="100"><h6>${teachercourse.course_id}</h6></td> 
             <td width="150"><h6>${teachercourse.course.course_name}</h6></td> 
@@ -52,27 +63,14 @@ function getTeacherCourses(){
           `;  
              
        });
-       output_table += `          
+       output_teacher_courses += `          
          </tbody> 
          </table>
          </div>
        `
-    document.getElementById('output_table').innerHTML = output_table;
+    document.getElementById('output_teacher_courses').innerHTML = output_teacher_courses;
 
   })
 } //end getTeacherCourses()
 
-function hideTeacherCourses(){
 
-  document.getElementById("teacher-courses").style.visibility = "hidden";
-
-} //end hideTeacherCourses()  
-
-window.onload=function(){
-console.log( "ec2019- In teacher_courses.js - window.onload" );
- // document.getElementById('displayRails2').addEventListener('click', displayRails2); 
- // document.getElementById('displayRails').addEventListener('click', displayRails);
- document.getElementById('fetchTeacherCourses_btn').addEventListener('click', getTeacherCourses);
-  document.getElementById('fetchCourseDetails_btn').addEventListener('click',getCourseDetails);
-  console.log( "ec2019- In teacher_courses.js - window.onload2" );
-} //end window.onload

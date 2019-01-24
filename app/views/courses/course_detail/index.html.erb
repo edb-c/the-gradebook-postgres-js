@@ -1,8 +1,9 @@
 <div class="devise_container">
 
-<!--  <button id="displayRails2">Click To View/Hide Previous Rails Project Version</button>
 
-<div id="old_DIV2" style="display:none"> -->
+<button onclick="displayRails2()" id="displayRails2">Click To View/Hide Previous Rails Project Version</button>
+
+<div id="old_DIV2" style="display:none">
 
 <!-- STUDENT ASSIGNMENT LOGIC -->
   <% if current_student %>
@@ -62,24 +63,27 @@
   <% end %>
 
 <h5> <%= link_to "Add New #{get_course_name(params[:course_id])} Assignment", new_course_course_detail_path("#{params[:course_id]}") %> </h5>
-<h5><a href="/teacher_courses"><button class="btn btn-primary">GO BACK</button></a></h5>
+
 <% end %>
 
-<!-- </div> -->
-
+<!--  -->
+</div>
 <%#--------------------------------------------------->%>
 
 <h4 class="blue-text"> ----  Rails with JavaScript Portfolio Project ----</h4>
 
 <h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
 
-<h5 class="green-text">Click to View this course's details:</h5> 
-
-<button id="fetchCourseDetails_btn">Get Course Details</button>
+<button onclick="getCourseDetails()" id="fetchCourseDetails_btn">Click to View <%= "#{get_course_name(params[:course_id])}" %> Course  Details:</button>
 
 <%#   %>
 
-<div id="output_table_cd"></div>
+<div id="output_course_details">
+  
+
+</div>
 
 
+<br>
+<h5><a href="/teacher_courses"><button class="btn btn-primary">GO BACK</button></a></h5>
 </div> <!-- end Devise Container -->

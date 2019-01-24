@@ -1,4 +1,5 @@
 <div class="devise_container">
+  
 <% if @course_detail.errors.any? %>
   <div class="msg msg-error z-depth-3 scale-transition">
     <ul>
@@ -46,5 +47,7 @@
   </div>
 
 <% end %>
+
+
 <h5><a href="/courses/<%= "#{current_teacher.id}" %>/course_details"><button class="btn btn-primary">GO BACK</button></a></h5>
 </div>

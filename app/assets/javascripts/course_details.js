@@ -1,10 +1,16 @@
 console.log( "ec2019- In course_details.js" );
 
-
 window.onload=function(){
+  //document.getElementById('displayRails').addEventListener('click', displayRails);
+  //document.getElementById('displayRails2').addEventListener('click', displayRails2); 
 
-	document.getElementById('displayRails2').addEventListener('click', displayRails2); 
-	document.getElementById('fetchCourseDetails_btn').addEventListener('click',getCourseDetails);
+document.getElementById("new_course_detail").addEventListener("submit", function(event){
+        event.preventDefault()
+        alert('Hello')
+    });
+
+
+
 
 } //end window.onload
 
@@ -20,19 +26,22 @@ function displayRails2() {
 
 class CourseDetails {
   constructor(input) {
- 
+    this.assignment_name = input.assignment_name
+    this.assignment_grade = input.assignment_grade
+    this.course_id = input.course_id
+    this.student_id = input.student_id
+    this.teacher_id = input.teacher_id
   }
 }
 
 function getCourseDetails(){  
-  var current_url = window.location.href;
-  //console.log('in get coursedetails' + current_url);
+  let current_url = window.location.href;
   
   fetch(current_url + '.json')
     .then((res) => res.json()) // Transform to JSON object
     .then((data) => {
-      
-      let output_table_cd = `<div id="course-details2">
+
+      let output_course_details = `<div id="output_course_details">
          <table>
          <tbody> 
           <tr> 
@@ -44,8 +53,8 @@ function getCourseDetails(){
           `;
       
        data.forEach(function(coursedetails){
-          console.log(coursedetails);
-          output_table_cd += `  
+          
+          output_course_details += `  
            <tr> 
             <td width="150"><h6>${coursedetails.assignment_name}</h6></td> 
             <td width="150"><h6>${coursedetails.student.lastname}, ${coursedetails.student.firstname}</h6></td> 
@@ -56,12 +65,32 @@ function getCourseDetails(){
           `;  
              
        });
-       output_table_cd += `          
+       output_course_details += `          
          </tbody> 
          </table>
+         <a href="${current_url + '/new'}">Add New Assignment</a>  
          </div>
        `
-    document.getElementById('output_table_cd').innerHTML = output_table_cd;
+    document.getElementById('output_course_details').innerHTML = output_course_details;
 
   })
+
 } //getCourseDetails()
+
+
+function newCourseDetail(){
+
+   //   e.preventDefault();
+let current_url = document.referrer;
+let data = current_url + '.json';
+
+fetch(data, {
+  method: 'POST',
+  body: JSON.stringify(data), 
+  headers:{
+    'Content-Type': 'application/json'
+  }
+}).then(res => res.json())
+.then(response => console.log('Success:', JSON.stringify(response)));
+
+}; //newCourseDetail()

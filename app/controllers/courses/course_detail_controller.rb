@@ -26,23 +26,51 @@ class Courses::CourseDetailController < ApplicationController
     CourseDetail.at_risk_students
   end
 
+#RAILS PROJECT CODE
+ # def create
+ #   puts "ec- In CourseDetailController -create"
+ #   @course_detail = CourseDetail.new(course_detail_params)
+
+ #   if @course_detail.save
+ #      flash[:notice] = "Record successfully added."
+ #      redirect_to course_course_details_path("#{params[:course_id]}")
+ #   else
+ #      flash[:error] = "Record not added. Please try again."
+ #      puts "Errors are #{@course_detail.errors.any?}"
+ #      @course_detail.errors.full_messages.each do |msg|
+ #        puts msg
+ #      end
+ #      render :new
+ #
+ #     end
+ # end
+
+# JAVASCRIPT / RAILS PROJECT CODE
+ 
   def create
     puts "ec- In CourseDetailController -create"
     @course_detail = CourseDetail.new(course_detail_params)
 
     if @course_detail.save
        flash[:notice] = "Record successfully added."
-       redirect_to course_course_details_path("#{params[:course_id]}")
+#     redirect_to course_course_details_path("#{params[:course_id]}")
+       render json: @course_detail, status: 201
+
     else
+       #render json: @course_detail, status: 406
+
        flash[:error] = "Record not added. Please try again."
        puts "Errors are #{@course_detail.errors.any?}"
+       
        @course_detail.errors.full_messages.each do |msg|
          puts msg
        end
+       
        render :new
-
+ 
       end
   end
+ 
 
   def show
    puts "ec- In CourseDetailController -show"
