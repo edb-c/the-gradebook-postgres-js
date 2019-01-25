@@ -69,7 +69,7 @@ let thisTeacherCourse = new TeacherCourse(teachercourse);
          </div>
        `
     document.getElementById('output_teacher_courses').innerHTML = output_teacher_courses;
-
+    
   })
 } //end getTeacherCourses()
 
