@@ -3,8 +3,7 @@ console.log( "ec2019- In course_details.js" );
 window.onload=function(){
   //document.getElementById('displayRails').addEventListener('click', displayRails);
   //document.getElementById('displayRails2').addEventListener('click', displayRails2); 
-
-//document.getElementById('new_course_detail').addEventListener('submit', new_course_detail);
+  //document.getElementById('new_course_detail').addEventListener('submit', new_course_detail);
 
 } //end window.onload
 
