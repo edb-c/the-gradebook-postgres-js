@@ -6,6 +6,7 @@ lastname:           'teacher_lastname1',
 email:              'teacher1@email.com',
 password:           'password1'
 )
+
 Teacher.create!(
 prefix:             'teacher_prefix2',
 firstname:          'teacher_firstname2',
@@ -19,6 +20,13 @@ firstname:          'teacher_firstname3',
 lastname:           'teacher_lastname3',
 email:              'teacher3@email.com',
 password:           'password3'
+)
+Teacher.create!(
+prefix:             'teacher_prefix4',
+firstname:          'teacher_firstname4',
+lastname:           'teacher_lastname4',
+email:              'teacher4@email.com',
+password:           'password4'
 )
 
 Student.create!(
@@ -57,6 +65,11 @@ Course.create!(
 course_name:        'Social Studies',  #course_id = 4
 )
 
+Course.create!(
+course_name:        'English Language Arts',  #course_id = 5
+)
+
+
 StudentCourse.create!(
 student_id:          1,
 course_id:           1
@@ -99,6 +112,20 @@ StudentCourse.create!(
 student_id:          1,
 course_id:           4
 )
+
+StudentCourse.create!(
+student_id:          1,
+course_id:           5
+)
+StudentCourse.create!(
+student_id:          2,
+course_id:           5
+)
+StudentCourse.create!(
+student_id:          3,
+course_id:           5
+)
+
 
 TeacherCourse.create!(
 teacher_id:          1,
@@ -118,6 +145,12 @@ TeacherCourse.create!(
 teacher_id:          3,
 course_id:           3
 )
+
+TeacherCourse.create!(
+teacher_id:          4,
+course_id:           5
+)
+
 CourseDetail.create(
 assignment_name:    'Math Assignment1',
 assignment_grade:   100,
@@ -223,7 +256,7 @@ teacher_id:          1, #Math Teacher
 student_id:          1
 )
 CourseDetail.create(
-assignment_name:    'Math Assignment2',
+assignment_name:    'Science Assignment2',
 assignment_grade:   70,
 course_id:           2, #Science
 teacher_id:          2, #Science Teacher
@@ -242,4 +275,26 @@ assignment_grade:   50,
 course_id:           4, #Social Studies
 teacher_id:          1, #Social Studies Teacher
 student_id:          2
+)
+
+CourseDetail.create(
+assignment_name:    'English Assignment1',
+assignment_grade:   90,
+course_id:           5, #English
+teacher_id:          4, #Social Studies Teacher
+student_id:          1
+)
+CourseDetail.create(
+assignment_name:    'English Assignment1',
+assignment_grade:   80,
+course_id:           5, #English
+teacher_id:          4, #English Teacher
+student_id:          2
+)
+CourseDetail.create(
+assignment_name:    'English Assignment1',
+assignment_grade:   100,
+course_id:           5, #English
+teacher_id:          4, #English Teacher
+student_id:          3
 )
