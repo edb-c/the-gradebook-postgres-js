@@ -19,9 +19,9 @@ function displayRails() {
 
 class TeacherCourse {
   constructor(input) {
-    this.id = input.id;
-    this.teacher_id = input.teacher_id;
-    this.course_id = input.course_id;
+    this.id          = input.id;
+    this.teacher_id  = input.teacher_id;
+    this.course_id   = input.course_id;
     this.course_name = input.course.course_name;
   }
 }
