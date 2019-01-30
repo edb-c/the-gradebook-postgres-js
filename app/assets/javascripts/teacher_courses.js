@@ -33,7 +33,7 @@ function getTeacherCourses(){
 
   var current_url = window.location.href;
  
-  const output_teacher_courses = '';
+  let output_teacher_courses = '';
 
   fetch(current_url + '.json')
     
