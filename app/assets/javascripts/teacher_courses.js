@@ -26,7 +26,6 @@ class TeacherCourse {
   }
 };
 
-
 /* Modified code to meet requirement - Must translate the JSON responses into JavaScript Model Objects using either ES6 class or constructor syntax. The Model Objects must have at least one method on the prototype. Formatters work really well for this.*/
 
 function getTeacherCourses(){

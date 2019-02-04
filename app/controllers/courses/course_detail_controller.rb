@@ -45,7 +45,7 @@ class Courses::CourseDetailController < ApplicationController
  #     end
  # end
 
-# JAVASCRIPT / RAILS PROJECT CODE
+#ec2019 JAVASCRIPT / RAILS PROJECT CODE
  
   def create
     puts "ec- In CourseDetailController -create"
@@ -71,12 +71,11 @@ class Courses::CourseDetailController < ApplicationController
       end
   end
  
-
   def show
    puts "ec- In CourseDetailController -show"
     @acoursedetail = CourseDetail.where(course_id: params[:id])
     respond_to do |format|
-        format.html {render :index} #
+        format.html {render :index} 
         format.json {render json: @acoursedetail }
     end    
   end

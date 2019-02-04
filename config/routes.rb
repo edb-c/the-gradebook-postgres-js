@@ -47,16 +47,14 @@ Rails.application.routes.draw do
 
   resources :teacher_courses
   resources :student_courses
+#Nested resource/routes - captures parent/child relationship
 
 #Nested resource/routes - captures parent/child relationship
-  resources :courses, only: :index do
+  resources :courses, only:  [:index, :show] do
   resources :course_details, controller: 'courses/course_detail'
 
- #ec-2019
-
-
  end
-
+  resources :teachers, only: [:show]
   resources :students, only: [:index, :show]
 
   patch '/courses/:course_id/course_details/:id', to: 'courses/course_detail#update'
