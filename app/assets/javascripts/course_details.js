@@ -29,9 +29,9 @@ class CourseDetail {
 
 function getCourseDetails(){
 
-  var current_url = window.location.href;
+  let current_url = window.location.href;
  
-  let output_course_detailss = '';
+  let output_course_details_links = '';
 
   fetch(current_url + '.json')
     
@@ -42,10 +42,16 @@ function getCourseDetails(){
         let thisCourseDetail = new CourseDetail(coursedetail);
         thisCourseDetail.createOutput();
     })
+  });
 
+  output_course_details_links += `       
 
-})
-
+<button onclick="sortCourseDetails()" id="sortCourseDetails_btn">Click to View Sorted Course Details:</button>
+<br>
+<br>
+<a href="${current_url + '/new'}">Add New Assignment</a>    
+  `
+  document.getElementById('output_course_details_links').innerHTML = output_course_details_links;
 } //end getCourseDetails()
 
 CourseDetail.prototype.createOutput = function() {
@@ -58,10 +64,8 @@ output_course_details += `
          <td width="150"><h6>${this.lastname}, ${this.firstname}</h6></td> 
          <td width="150"><h6>${this.assignment_grade}</h6></td> 
          <td width="150"></td> 
-        </tr>   
-        </table>  
- 
-        
+         </tr>   
+        </table>          
        `;  
     document.getElementById('output_course_details').innerHTML = output_course_details;
 
