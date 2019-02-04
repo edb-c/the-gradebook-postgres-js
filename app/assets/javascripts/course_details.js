@@ -16,16 +16,61 @@ function displayRails2() {
     rails_section.style.display = "none";
   }
 };
+/* Modified code to meet requirement - Must translate the JSON responses into JavaScript Model Objects using either ES6 class or constructor syntax. The Model Objects must have at least one method on the prototype. Formatters work really well for this.*/
 
-class CourseDetails {
+class CourseDetail {
   constructor(input) {
     this.assignment_name = input.assignment_name
     this.assignment_grade = input.assignment_grade
-    this.course_id = input.course_id
-    this.student_id = input.student_id
-    this.teacher_id = input.teacher_id
+    this.lastname = input.student.lastname
+    this.firistname = input.student.firstname
   }
 }
+
+function getCourseDetails(){
+
+  var current_url = window.location.href;
+ 
+  let output_course_detailss = '';
+
+  fetch(current_url + '.json')
+    
+    .then((res) => res.json()) // Transform to JSON object
+    .then((data) => { 
+     
+     data.forEach(coursedetail => {    // ES6 -Use of arrow function
+        let thisCourseDetail = new CourseDetail(coursedetail);
+        thisCourseDetail.createOutput();
+    })
+
+
+})
+
+} //end getCourseDetails()
+
+CourseDetail.prototype.createOutput = function() {
+
+output_course_details += `
+
+         <table>
+         <tr> 
+         <td width="150"><h6>${this.assignment_name}</h6></td> 
+         <td width="150"><h6>${this.lastname}, ${this.firstname}</h6></td> 
+         <td width="150"><h6>${this.assignment_grade}</h6></td> 
+         <td width="150"></td> 
+        </tr>   
+        </table>  
+ 
+        
+       `;  
+    document.getElementById('output_course_details').innerHTML = output_course_details;
+
+} // end CourseDetail.prototype.createOutput
+
+
+/* -------------------------------------------------- 
+
+//Other Veresion -Plainly taking JSON response
 
 function getCourseDetails(){  
   let current_url = window.location.href;
@@ -70,11 +115,7 @@ function getCourseDetails(){
 
 } //getCourseDetails()
 
-//function sortCourseDetails(){ 
-
-
-//}
-
+*/
 function new_course_detail(){
 
 //let current_url = window.location.referrer + '.json';
