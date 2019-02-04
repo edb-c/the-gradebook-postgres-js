@@ -75,6 +75,7 @@
 <h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
 
 <button onclick="getCourseDetails()" id="fetchCourseDetails_btn">Click to View <%= "#{get_course_name(params[:course_id])}" %> Course  Details:</button>
+<button onclick="sortCourseDetails()" id="sortCourseDetails_btn">Click to View Sorted Data Course Details:</button>
 
 <%#   %>
 

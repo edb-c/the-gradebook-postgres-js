@@ -70,7 +70,7 @@ function getCourseDetails(){
 
 } //getCourseDetails()
 
-//function sortCourseDetails(){
+//function sortCourseDetails(){ 
 
 
 //}
