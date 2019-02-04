@@ -70,13 +70,14 @@ class Courses::CourseDetailController < ApplicationController
  
       end
   end
- 
-  def show
+ #Note: This project does logically break from REST pattern
+ #This shows course details for 1 course
+  def show  
    puts "ec- In CourseDetailController -show"
-    @acoursedetail = CourseDetail.where(course_id: params[:id])
+    @a_courses_details = CourseDetail.where(course_id: params[:id])
     respond_to do |format|
         format.html {render :index} 
-        format.json {render json: @acoursedetail }
+        format.json {render json: @a_courses_details }
     end    
   end
 
