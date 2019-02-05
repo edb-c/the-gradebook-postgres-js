@@ -23,7 +23,7 @@ class CourseDetail {
     this.assignment_name = input.assignment_name
     this.assignment_grade = input.assignment_grade
     this.lastname = input.student.lastname
-    this.firistname = input.student.firstname
+    this.firstname = input.student.firstname
   }
 }
 
@@ -42,7 +42,7 @@ function getCourseDetails(){
         let thisCourseDetail = new CourseDetail(coursedetail);
         thisCourseDetail.createOutput();
     })
-  });
+ });
 
   output_course_details_links += `       
 
@@ -56,22 +56,47 @@ function getCourseDetails(){
 
 /* ----------------
 
-
 */
 function sortCourseDetails(){
  
+  let output_course_details_sorted = "";
+
  let pathArray = window.location.href.split('/');
- //console.log(pathArray)
- //console.log("sort url is " + pathArray[0] + pathArray[1] + pathArray[2] + "/" + pathArray[3] + "/" + pathArray[4] + ".json")
- let sortUrl = pathArray[0] + "//" + pathArray[1] + pathArray[2] + "/" + pathArray[3] + "/" + pathArray[4] + ".json"
- console.log(sortUrl)
-}
+ let sortUrl = pathArray[0] + "//" + pathArray[1] + pathArray[2]+ "/" + pathArray[3] + "/" + pathArray[4];
+ 
+ fetch(sortUrl  + '.json')   
+    .then((res) => res.json()) // Transform to JSON object
+    .then((course) => { 
+  
+      
+      sortedAssignemntGrades_array = course.course_details.sort(function(a,b){
+        return a.assignment_grade - b.assignment_grade 
+        
+      }); //end sort function
+    
+      sortedAssignemntGrades_array.forEach(assignment => {
+           
+      output_course_details_sorted += `
+      
+        <table>
+        <tr> 
+        <td width="150"><h6>${assignment.assignment_name}</h6></td> 
+        <td width="150"><h6>${assignment.student_id}</h6></td> 
+        <td width="150"><h6>${assignment.assignment_grade}</h6></td> 
+        <td width="150"></td> 
+        </tr>   
+       </table>   
+       `       
+    
+    document.getElementById('output_course_details_sorted').innerHTML = output_course_details_sorted;
+  
+  }) //end forEach
+ }); //end fetch(sortUrl)    
+} //end function sortCourseDetails()
 
 /* ----------------
 
-
 */
-
 
 CourseDetail.prototype.createOutput = function() {
 
