@@ -24,8 +24,8 @@ class CourseDetail {
     this.assignment_grade = input.assignment_grade
     this.lastname = input.student.lastname
     this.firstname = input.student.firstname
-  }
-}
+  } //end constructor
+} // end class CourseDetails
 
 function getCourseDetails(){
 
@@ -59,7 +59,7 @@ function getCourseDetails(){
 */
 function sortCourseDetails(){
  
-  let output_course_details_sorted = "";
+let output_course_details_sorted = "";
 
  let pathArray = window.location.href.split('/');
  let sortUrl = pathArray[0] + "//" + pathArray[1] + pathArray[2]+ "/" + pathArray[3] + "/" + pathArray[4];
@@ -67,21 +67,17 @@ function sortCourseDetails(){
  fetch(sortUrl  + '.json')   
     .then((res) => res.json()) // Transform to JSON object
     .then((course) => { 
-  
-      
       sortedAssignemntGrades_array = course.course_details.sort(function(a,b){
-        return a.assignment_grade - b.assignment_grade 
-        
+        return a.assignment_grade - b.assignment_grade         
       }); //end sort function
-    
+ 
       sortedAssignemntGrades_array.forEach(assignment => {
-           
-      output_course_details_sorted += `
-      
+
+        output_course_details_sorted += `
         <table>
         <tr> 
         <td width="150"><h6>${assignment.assignment_name}</h6></td> 
-        <td width="150"><h6>${assignment.student_id}</h6></td> 
+        <td width="150"><h6>Lastname${assignment.student_id},FirstName${assignment.student_id}</h6></td> 
         <td width="150"><h6>${assignment.assignment_grade}</h6></td> 
         <td width="150"></td> 
         </tr>   
@@ -105,7 +101,7 @@ output_course_details += `
          <table>
          <tr> 
          <td width="150"><h6>${this.assignment_name}</h6></td> 
-         <td width="150"><h6>${this.lastname}, ${this.firstname}</h6></td> 
+         <td width="150"><h6>${this.lastname.charAt(0).toUpperCase()+ this.lastname.slice(1)}, ${this.firstname.charAt(0).toUpperCase()+ this.firstname.slice(1)}</h6></td> 
          <td width="150"><h6>${this.assignment_grade}</h6></td> 
          <td width="150"></td> 
          </tr>   

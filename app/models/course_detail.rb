@@ -4,7 +4,9 @@ class CourseDetail < ApplicationRecord
   belongs_to :teacher, optional: :true
   
   #has_many  :teacher_courses, through: :teacher
+  #has_many :student_courses
   #has_many  :students, through: :student_courses
+  
 
   scope :at_risk_students, -> { where("assignment_grade < 75") }
 
