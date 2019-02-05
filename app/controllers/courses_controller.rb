@@ -1,11 +1,9 @@
 class CoursesController < ApplicationController
 
-    def show
-    
-        @course = Course.find(params[:id])
-        render json: @course 
-    
-      end
+    def show  
+        @course = Course.find(params[:id]) if current_teacher
+        render json: @course     
+    end
 
 
 end

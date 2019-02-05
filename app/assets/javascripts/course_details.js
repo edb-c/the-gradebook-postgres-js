@@ -54,6 +54,25 @@ function getCourseDetails(){
   document.getElementById('output_course_details_links').innerHTML = output_course_details_links;
 } //end getCourseDetails()
 
+/* ----------------
+
+
+*/
+function sortCourseDetails(){
+ 
+ let pathArray = window.location.href.split('/');
+ //console.log(pathArray)
+ //console.log("sort url is " + pathArray[0] + pathArray[1] + pathArray[2] + "/" + pathArray[3] + "/" + pathArray[4] + ".json")
+ let sortUrl = pathArray[0] + "//" + pathArray[1] + pathArray[2] + "/" + pathArray[3] + "/" + pathArray[4] + ".json"
+ console.log(sortUrl)
+}
+
+/* ----------------
+
+
+*/
+
+
 CourseDetail.prototype.createOutput = function() {
 
 output_course_details += `
@@ -70,6 +89,7 @@ output_course_details += `
     document.getElementById('output_course_details').innerHTML = output_course_details;
 
 } // end CourseDetail.prototype.createOutput
+
 
 
 /* -------------------------------------------------- 
